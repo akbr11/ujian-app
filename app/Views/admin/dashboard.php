@@ -43,7 +43,7 @@
   </nav>
   <div class="container-fluid">
     <div class="row">
-        <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse">
+        <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
             <!-- sidebar content goes in here -->
             <div class="position-sticky pt-md-5">
               <ul class="nav flex-column">
