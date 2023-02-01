@@ -1,266 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootstrap 5 Simple Admin Dashboard</title>
-    
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
-    <script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
-  
-    <link rel="stylesheet" href="<?= base_url('./public/assets/style.css') ?>">
-
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="<?= base_url('/assets')?>/style.css" />
+    <title>Bootstap 5 Responsive Admin Dashboard</title>
 </head>
+
 <body>
-  <nav class="navbar navbar-light bg-light p-3">
-    <div class="d-flex col-12 col-md-3 col-lg-2 mb-2 mb-lg-0 flex-wrap flex-md-nowrap justify-content-between">
-        <a class="navbar-brand" href="#">
-            Simple Dashboard
-        </a>
-        <button class="navbar-toggler d-md-none collapsed mb-3" type="button" data-toggle="collapse" data-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </div>
-    <div class="col-12 col-md-4 col-lg-2">
-        <input class="form-control form-control-dark" type="text" placeholder="Search" aria-label="Search">
-    </div>
-    <div class="col-12 col-md-5 col-lg-8 d-flex align-items-center justify-content-md-end mt-3 mt-md-0">
-        <div class="mr-3 mt-1">
-            <a class="github-button" href="https://github.com/themesberg/simple-bootstrap-5-dashboard" data-color-scheme="no-preference: dark; light: light; dark: light;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star /themesberg/simple-bootstrap-5-dashboard">Star</a>
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <div class="bg-white" id="sidebar-wrapper">
+            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><i
+                    class="fas fa-user-secret me-2"></i>Codersbite</div>
+            <div class="list-group list-group-flush my-3">
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text active"><i
+                        class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                        class="fas fa-project-diagram me-2"></i>Projects</a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                        class="fas fa-chart-line me-2"></i>Analytics</a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                        class="fas fa-paperclip me-2"></i>Reports</a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                        class="fas fa-shopping-cart me-2"></i>Store Mng</a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                        class="fas fa-gift me-2"></i>Products</a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                        class="fas fa-comment-dots me-2"></i>Chat</a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                        class="fas fa-map-marker-alt me-2"></i>Outlet</a>
+                <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
+                        class="fas fa-power-off me-2"></i>Logout</a>
+            </div>
         </div>
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
-              Hello, John Doe
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <li><a class="dropdown-item" href="#">Settings</a></li>
-              <li><a class="dropdown-item" href="#">Messages</a></li>
-              <li><a class="dropdown-item" href="#">Sign out</a></li>
-            </ul>
-          </div>
-    </div>
-  </nav>
-  <div class="container-fluid">
-    <div class="row">
-        <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-            <!-- sidebar content goes in here -->
-            <div class="position-sticky pt-md-5">
-              <ul class="nav flex-column">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                      <span class="ml-2">Dashboard</span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
-                      <span class="ml-2">Orders</span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-                      <span class="ml-2">Products</span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                      <span class="ml-2">Customers</span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-                      <span class="ml-2">Reports</span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-                      <span class="ml-2">Integrations</span>
-                    </a>
-                  </li>
-                </ul>
-            </div>
-        </nav>
-        <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4 py-4">
-            <h1 class="h2">Dashboard</h1>
-            <nav aria-label="breadcrumb">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Overview</li>
-              </ol>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
+                    <h2 class="fs-2 m-0">Dashboard</h2>
+                </div>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle second-text fw-bold" href="#" id="navbarDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-user me-2"></i>John Doe
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Profile</a></li>
+                                <li><a class="dropdown-item" href="#">Settings</a></li>
+                                <li><a class="dropdown-item" href="#">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </nav>
-            <h1 class="h2">Dashboard</h1>
-            <p>This is the homepage of a simple admin interface which is part of a tutorial written on Themesberg</p>
-            <div class="card">
-              <h5 class="card-header">Customers</h5>
-              <div class="card-body">
-                <h5 class="card-title">345k</h5>
-                <p class="card-text">Feb 1 - Apr 1, United States</p>
-                <p class="card-text text-success">18.2% increase since last month</p>
-              </div>
+
+            <div class="container-fluid px-4">
+                <div class="row g-3 my-2">
+                    <div class="col-md-3">
+                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                            <div>
+                                <h3 class="fs-2">720</h3>
+                                <p class="fs-5">Products</p>
+                            </div>
+                            <i class="fas fa-gift fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                            <div>
+                                <h3 class="fs-2">4920</h3>
+                                <p class="fs-5">Sales</p>
+                            </div>
+                            <i
+                                class="fas fa-hand-holding-usd fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                            <div>
+                                <h3 class="fs-2">3899</h3>
+                                <p class="fs-5">Delivery</p>
+                            </div>
+                            <i class="fas fa-truck fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                            <div>
+                                <h3 class="fs-2">%25</h3>
+                                <p class="fs-5">Increase</p>
+                            </div>
+                            <i class="fas fa-chart-line fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row my-5">
+                    <h3 class="fs-4 mb-3">Recent Orders</h3>
+                    <div class="col">
+                        <table class="table bg-white rounded shadow-sm  table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col" width="50">#</th>
+                                    <th scope="col">Product</th>
+                                    <th scope="col">Customer</th>
+                                    <th scope="col">Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Television</td>
+                                    <td>Jonny</td>
+                                    <td>$1200</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Laptop</td>
+                                    <td>Kenny</td>
+                                    <td>$750</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Cell Phone</td>
+                                    <td>Jenny</td>
+                                    <td>$600</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">4</th>
+                                    <td>Fridge</td>
+                                    <td>Killy</td>
+                                    <td>$300</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">5</th>
+                                    <td>Books</td>
+                                    <td>Filly</td>
+                                    <td>$120</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">6</th>
+                                    <td>Gold</td>
+                                    <td>Bumbo</td>
+                                    <td>$1800</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">7</th>
+                                    <td>Pen</td>
+                                    <td>Bilbo</td>
+                                    <td>$75</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">8</th>
+                                    <td>Notebook</td>
+                                    <td>Frodo</td>
+                                    <td>$36</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">9</th>
+                                    <td>Dress</td>
+                                    <td>Kimo</td>
+                                    <td>$255</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">10</th>
+                                    <td>Paint</td>
+                                    <td>Zico</td>
+                                    <td>$434</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">11</th>
+                                    <td>Carpet</td>
+                                    <td>Jeco</td>
+                                    <td>$1236</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">12</th>
+                                    <td>Food</td>
+                                    <td>Haso</td>
+                                    <td>$422</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
             </div>
-            <div class="row my-4">
-              <div class="col-12 col-md-6 col-lg-3 mb-4 mb-lg-0">
-                  <div class="card">
-                      <h5 class="card-header">Customers</h5>
-                      <div class="card-body">
-                        <h5 class="card-title">345k</h5>
-                        <p class="card-text">Feb 1 - Apr 1, United States</p>
-                        <p class="card-text text-success">18.2% increase since last month</p>
-                      </div>
-                    </div>
-              </div>
-              <div class="col-12 col-md-6 mb-4 mb-lg-0 col-lg-3">
-                  <div class="card">
-                      <h5 class="card-header">Revenue</h5>
-                      <div class="card-body">
-                        <h5 class="card-title">$2.4k</h5>
-                        <p class="card-text">Feb 1 - Apr 1, United States</p>
-                        <p class="card-text text-success">4.6% increase since last month</p>
-                      </div>
-                    </div>
-              </div>
-              <div class="col-12 col-md-6 mb-4 mb-lg-0 col-lg-3">
-                  <div class="card">
-                      <h5 class="card-header">Purchases</h5>
-                      <div class="card-body">
-                        <h5 class="card-title">43</h5>
-                        <p class="card-text">Feb 1 - Apr 1, United States</p>
-                        <p class="card-text text-danger">2.6% decrease since last month</p>
-                      </div>
-                    </div>
-              </div>
-              <div class="col-12 col-md-6 mb-4 mb-lg-0 col-lg-3">
-                  <div class="card">
-                      <h5 class="card-header">Traffic</h5>
-                      <div class="card-body">
-                        <h5 class="card-title">64k</h5>
-                        <p class="card-text">Feb 1 - Apr 1, United States</p>
-                        <p class="card-text text-success">2.5% increase since last month</p>
-                      </div>
-                    </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12 col-xl-8 mb-4 mb-lg-0">
-                  <div class="card">
-                      <h5 class="card-header">Latest transactions</h5>
-                      <div class="card-body">
-                          <div class="table-responsive">
-                              <table class="table">
-                                  <thead>
-                                    <tr>
-                                      <th scope="col">Order</th>
-                                      <th scope="col">Product</th>
-                                      <th scope="col">Customer</th>
-                                      <th scope="col">Total</th>
-                                      <th scope="col">Date</th>
-                                      <th scope="col"></th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                    <tr>
-                                      <th scope="row">17371705</th>
-                                      <td>Volt Premium Bootstrap 5 Dashboard</td>
-                                      <td>johndoe@gmail.com</td>
-                                      <td>€61.11</td>
-                                      <td>Aug 31 2020</td>
-                                      <td><a href="#" class="btn btn-sm btn-primary">View</a></td>
-                                    </tr>
-                                    <tr>
-                                      <th scope="row">17370540</th>
-                                      <td>Pixel Pro Premium Bootstrap UI Kit</td>
-                                      <td>jacob.monroe@company.com</td>
-                                      <td>$153.11</td>
-                                      <td>Aug 28 2020</td>
-                                      <td><a href="#" class="btn btn-sm btn-primary">View</a></td>
-                                    </tr>
-                                    <tr>
-                                      <th scope="row">17371705</th>
-                                      <td>Volt Premium Bootstrap 5 Dashboard</td>
-                                      <td>johndoe@gmail.com</td>
-                                      <td>€61.11</td>
-                                      <td>Aug 31 2020</td>
-                                      <td><a href="#" class="btn btn-sm btn-primary">View</a></td>
-                                    </tr>
-                                    <tr>
-                                      <th scope="row">17370540</th>
-                                      <td>Pixel Pro Premium Bootstrap UI Kit</td>
-                                      <td>jacob.monroe@company.com</td>
-                                      <td>$153.11</td>
-                                      <td>Aug 28 2020</td>
-                                      <td><a href="#" class="btn btn-sm btn-primary">View</a></td>
-                                    </tr>
-                                    <tr>
-                                      <th scope="row">17371705</th>
-                                      <td>Volt Premium Bootstrap 5 Dashboard</td>
-                                      <td>johndoe@gmail.com</td>
-                                      <td>€61.11</td>
-                                      <td>Aug 31 2020</td>
-                                      <td><a href="#" class="btn btn-sm btn-primary">View</a></td>
-                                    </tr>
-                                    <tr>
-                                      <th scope="row">17370540</th>
-                                      <td>Pixel Pro Premium Bootstrap UI Kit</td>
-                                      <td>jacob.monroe@company.com</td>
-                                      <td>$153.11</td>
-                                      <td>Aug 28 2020</td>
-                                      <td><a href="#" class="btn btn-sm btn-primary">View</a></td>
-                                    </tr>
-                                  </tbody>
-                                </table>
-                          </div>
-                            <a href="#" class="btn btn-block btn-light">View all</a>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-12 col-xl-4">
-                  <!-- Another widget will go here -->
-                  <div class="card">
-                    <h5 class="card-header">Traffic last 6 months</h5>
-                    <div class="card-body">
-                        <div id="traffic-chart"></div>
-                    </div>
-                  </div>
-              </div>
-            </div>
-            <footer class="pt-5 d-flex justify-content-between">
-              <span>Copyright © 2019-2020 <a href="https://themesberg.com">Themesberg</a></span>
-              <ul class="nav m-0">
-                  <li class="nav-item">
-                    <a class="nav-link text-secondary" aria-current="page" href="#">Privacy Policy</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link text-secondary" href="#">Terms and conditions</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link text-secondary" href="#">Contact</a>
-                  </li>
-                </ul>
-            </footer>
-        </main>
+        </div>
     </div>
-  </div>
+    <!-- /#page-content-wrapper -->
+    </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        var el = document.getElementById("wrapper");
+        var toggleButton = document.getElementById("menu-toggle");
 
-  <script>
-    new Chartist.Line('#traffic-chart', {
-        labels: ['January', 'Februrary', 'March', 'April', 'May', 'June'],
-        series: [
-          [23000, 25000, 19000, 34000, 56000, 64000]
-        ]
-      }, {
-      low: 0,
-      showArea: true
-    });
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
-  
+        toggleButton.onclick = function () {
+            el.classList.toggle("toggled");
+        };
+    </script>
 </body>
+
 </html>
